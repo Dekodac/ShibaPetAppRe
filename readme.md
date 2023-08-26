@@ -1,1 +1,2 @@
-First commit message
+This Repo was made because the ShibaPetApp Repo got busted with files being copy and pasted and having over 5k files...
+This is my attempt to fix the mess.
