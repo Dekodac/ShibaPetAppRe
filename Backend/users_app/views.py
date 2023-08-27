@@ -79,3 +79,18 @@ class Log_out(APIView):
         request.user.auth_token.delete()
         return Response(status=HTTP_204_NO_CONTENT)
     
+class ChangeUsername(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def put(self, request):
+        new_username = request.data.get('new_username', None)
+        if new_username:
+            try:
+                user = request.user
+                user.username = new_username
+                user.save()
+                return Response({"message": "Username updated successfully"}, status=HTTP_200_OK)
+            except Exception as e:
+                return Response({"message": "Failed to update username"}, status=HTTP_400_BAD_REQUEST)
+        return Response({"message": "New username not provided"}, status=HTTP_400_BAD_REQUEST)
