@@ -18,8 +18,6 @@ if (loginStatus === 'success') {
 }
 else { 
     return (
-
-        
         <div style={{width: 1512, height: 982, position: 'relative', background: '#BEB378'}}>
     <div style={{width: 1512, height: 68, left: 0, top: 914, position: 'absolute'}}>
         <div style={{width: 1512, height: 65, left: 0, top: 0, position: 'absolute', background: '#E0C223'}} />
@@ -68,9 +66,6 @@ else {
         </div>
     </div>
 </div>
-            
-
-
     );
 }
 }
