@@ -1,4 +1,8 @@
 export default function ShibaCreationPage(){
+    const token = localStorage.getItem('token');
+  if (token === "undefined"){
+    localStorage.removeItem("token");
+  }
 
 
 

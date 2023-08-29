@@ -10,9 +10,12 @@ export default function HomePage(){
   const {loginStatus} = useContext(LoginContext);
   
   const token = localStorage.getItem('token');
+  if (token === "undefined"){
+    localStorage.removeItem("token");
+  }
 
 
-if (!token){
+if (!token || token === "undefined"){
     return (
 
 <div style={{width: 1512, height: 982, position: 'relative', background: '#BEB378'}}>

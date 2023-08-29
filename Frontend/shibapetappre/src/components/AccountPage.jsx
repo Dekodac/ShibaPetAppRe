@@ -4,8 +4,11 @@ import { Container, Row, Col, Card, Button, Modal, Form } from 'react-bootstrap'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { LoginContext } from './LoginContext';
+import { LogoutContext } from './LogoutContext';
 
 export default function AccountPage() {
+
+  const {handleLogout} = useContext(LogoutContext);
 
   const {loginStatus,handleLogInSubmit,handlePasswChange,handleEmailChange,email,passw} = useContext(LoginContext);
 
@@ -33,14 +36,7 @@ export default function AccountPage() {
     fetchUserProfile();
   }, [token]);
 
-  const handleLogout = () => {
-    //Remove token from session
-    localStorage.removeItem('token');
-    // Redirect to login or home page
-    // loginStatus = null; <---- was giving issues not going back to homepage for some reason... anomaly..
-    window.location.reload();
-    navigate("/");
-  };
+  
 
   const handleChangeUsername = async () => {
     try {

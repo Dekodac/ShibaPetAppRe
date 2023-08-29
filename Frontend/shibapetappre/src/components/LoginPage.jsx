@@ -61,9 +61,25 @@ else {
     <div style={{width: 178, height: 65, left: 997, top: 452, position: 'absolute'}}>
         <div style={{width: 178, height: 65, left: 0, top: 0, position: 'absolute', background: '#EEDAB6', borderRadius: 77, border: '0.50px black solid'}} />
         
-        <div style={{width: 133, height: 33, left: 24, top: 13, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 24, fontFamily: 'Kiwi Maru', fontWeight: '500', wordWrap: 'break-word'}}>
-            <button onClick={handleLogInSubmit} style={{backgroundColor: '#EFC983', width: 150, height:35, borderRadius: 10, position: 'relative', right: 10, color: 'black', fontSize: 24, fontFamily: 'Inter'}}>Submit</button>
-        </div>
+        <div style={{
+  width: 133,
+  height: 33,
+  left: 24,
+  top: 13,
+  position: 'absolute',
+  textAlign: 'center',
+  color: 'black',
+  fontSize: 24,
+  fontFamily: 'Kiwi Maru',
+  fontWeight: '500',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+}}>
+  <button onClick={handleLogInSubmit}style={{ backgroundColor: '#EFC983', width: 150, height: 35, borderRadius: 10, position: 'relative', color: 'black', fontSize: 24, fontFamily: 'Inter', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Submit</button>
+</div>
+
+
     </div>
 </div>
     );
