@@ -36,8 +36,10 @@ export default function SignUpPage(){
                 password: passw
             };
             const response = await axios.post('http://127.0.0.1:8000/signup/', userData);
+
+            console.log(response.data === "success")
     
-            if (response.data === "success") {
+            if (response.data.token) {
                 console.log('Registration successful:', response.data);
                 localStorage.setItem("token", response.data.token);
                 alert("Sign up successful!");

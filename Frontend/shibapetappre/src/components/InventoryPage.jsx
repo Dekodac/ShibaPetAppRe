@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 export default function InventoryPage(){
     const token = localStorage.getItem('token');
+    if (token === "undefined"){
+      localStorage.removeItem("token");
+    }
     
     if (!token){
         return(

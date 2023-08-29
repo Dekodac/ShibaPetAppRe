@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import {  Outlet } from 'react-router-dom';
 import { LoginContext } from './components/LoginContext';
 import axios from 'axios';
+import { LogoutContext } from './components/LogoutContext';
 
 export default function App() {
   
@@ -99,11 +100,22 @@ useEffect(() => {
       }
   };
 
+  const handleLogout = () => {
+    //Remove token from session
+    localStorage.removeItem('token');
+    // Redirect to login or home page
+    // loginStatus = null; <---- was giving issues not going back to homepage for some reason... anomaly..
+    window.location.reload();
+    navigate("/");
+  };
+
   return (
     <>
+    <LogoutContext.Provider value={{handleLogout}}>
     <LoginContext.Provider value={{loginStatus,setLoginStatus,handleLogInSubmit,handlePasswChange,handleEmailChange,email,passw}}>
       <Outlet />
     </LoginContext.Provider>
+    </LogoutContext.Provider>
     </>
   );
 }
