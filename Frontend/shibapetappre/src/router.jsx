@@ -5,6 +5,7 @@ import AboutPage from './components/AboutPage';
 import SignUpPage from './components/SignUpPage';
 import LoginPage from './components/LoginPage';
 import AccountPage from './components/AccountPage';
+import InventoryPage from './components/InventoryPage';
 
       
       const router = createBrowserRouter([
@@ -30,8 +31,12 @@ import AccountPage from './components/AccountPage';
               element: <LoginPage />
             },
             {
-            path: '/account',
-            element: <AccountPage />
+              path: '/account',
+              element: <AccountPage />
+            },
+            {
+              path: '/userInventory',
+              element: <InventoryPage />
             }
           ],
         },
