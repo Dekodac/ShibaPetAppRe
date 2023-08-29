@@ -36,16 +36,25 @@ export default function SignUpPage(){
                 password: passw
             };
             const response = await axios.post('http://127.0.0.1:8000/signup/', userData);
-            console.log('Registration successful:', response.data);
-            localStorage.setItem("token", response.data.token);
-            alert("Sign in successful!")
-            navigate('/login')
+    
+            if (response.data === "success") {
+                console.log('Registration successful:', response.data);
+                localStorage.setItem("token", response.data.token);
+                alert("Sign up successful!");
+                navigate('/login');
+            } else {
+                console.error('Registration failed:', response.data);
+                // Display an error message to the user indicating what went wrong
+                alert('Registration failed: ' + response.data.error_message);
+            }
         } catch (error) {
             console.error('Registration failed:', error);
             // Handle error response, display error message to the user
+            alert('An error occurred during registration.');
         }
         event.preventDefault();
     }
+    
 
 
 
@@ -103,10 +112,13 @@ export default function SignUpPage(){
             />
         </div>
     </div>
-    <div style={{width: 178, height: 65, left: 979, top: 430, position: 'absolute'}}>
-        <div style={{width: 178, height: 65, left: 0, top: 0, position: 'absolute', background: '#EEDAB6', borderRadius: 77, border: '0.50px black solid'}} />
-        <div style={{width: 133, height: 33, left: 24, top: 13, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 24, fontFamily: 'Kiwi Maru', fontWeight: '500', wordWrap: 'break-word'}}><button onClick={handleSignInSubmit} style={{backgroundColor: '#EFC983', width: 150, height:35, borderRadius: 10, position: 'relative', right: 10, color: 'black', fontSize: 24, fontFamily: 'Inter'}}>Submit</button></div>
+    <div style={{ width: 178, height: 65, left: 979, top: 430, position: 'absolute' }}>
+    <div style={{ width: 178, height: 65, left: 0, top: 0, position: 'absolute', background: '#EEDAB6', borderRadius: 77, border: '0.50px black solid' }} />
+    <div style={{ width: 133, height: 33, left: 24, top: 13, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 24, fontFamily: 'Kiwi Maru', fontWeight: '500' }}>
+        <button onClick={handleSignInSubmit} style={{ backgroundColor: '#EFC983', width: 150, height: 35, borderRadius: 10, position: 'relative', right: 10, color: 'black', fontSize: 24, fontFamily: 'Inter', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Submit</button>
     </div>
+</div>
+
 </div>
     );
 }

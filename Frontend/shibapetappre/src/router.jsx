@@ -6,6 +6,7 @@ import SignUpPage from './components/SignUpPage';
 import LoginPage from './components/LoginPage';
 import AccountPage from './components/AccountPage';
 import InventoryPage from './components/InventoryPage';
+import ShibaCreationPage from './components/ShibaCreationPage';
 
       
       const router = createBrowserRouter([
@@ -37,6 +38,10 @@ import InventoryPage from './components/InventoryPage';
             {
               path: '/userInventory',
               element: <InventoryPage />
+            },
+            {
+              path: '/shibacreation',
+              element: <ShibaCreationPage />
             }
           ],
         },
