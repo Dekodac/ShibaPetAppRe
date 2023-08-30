@@ -59,58 +59,61 @@ export default function AccountPage() {
 
 
   return (
-    <Container className="mt-5">
-      <Row className="justify-content-center">
-        <Col md={6}>
-          <Card>
-            <Card.Header className="text-center bg-primary text-white">
-              <h3>Account Information</h3>
-            </Card.Header>
-            <Card.Body>
-              <div className="mb-3">
-                <strong>Username:</strong> {userProfile.username}
-              </div>
-              <div>
-                <strong>Email:</strong> {userProfile.email}
-              </div>
-              <Button variant="primary" className="mt-3" onClick={() => setShowModal(true)}>
-                Change Username
-              </Button>
-              <Button variant="danger" className="mt-2" onClick={handleLogout}>
-                Logout
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+    <>
+    <div style={{ position: 'absolute', top: 30, left: "50%",marginLeft: -50, height: 100, width: 200}}>
+      <Container>
+        <Row className="justify-content-center">
+          <Col md={6}>
+            <Card>
+              <Card.Header className="text-center bg-primary text-white">
+                <h3>Account Information</h3>
+              </Card.Header>
+              <Card.Body>
+                <div className="mb-3">
+                  <strong>Username:</strong> {userProfile.username}
+                </div>
+                <div>
+                  <strong>Email:</strong> {userProfile.email}
+                </div>
+                <Button variant="primary" className="mt-3" onClick={() => setShowModal(true)}>
+                  Change Username
+                </Button>
+                <Button variant="danger" className="mt-2" onClick={handleLogout}>
+                  Logout
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
 
-      {/* Change Username Modal */}
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Change Username</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="newUsername">
-              <Form.Label>New Username</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter new username"
-                value={newUsername}
-                onChange={(e) => setNewUsername(e.target.value)}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleChangeUsername}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </Container>
+        {/* Change Username Modal */}
+    <div style={{width: 40, left: 40, right: 50, bottom: 40, top: 40, justifyContent: 'center'}}>
+        <Modal show={showModal} onHide={() => setShowModal(false)}>
+          <Modal.Body>
+            <Form>
+              <Form.Group controlId="newUsername">
+                <Form.Label>New Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter new username"
+                  value={newUsername}
+                  onChange={(e) => setNewUsername(e.target.value)}
+                />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowModal(false)}>
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={handleChangeUsername}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+    </div>
+      </Container>
+    </div>
+    </>
   );
 }
