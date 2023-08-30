@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { LogoutContext } from "./LogoutContext";
 import { useState } from "react";
+import { DogFactContext } from "./DogFactContext";
 
 
 export default function ShibaCreationPage(){
+    const {dogFact} = useContext(DogFactContext)
     const {handleLogout} = useContext(LogoutContext)
 
 
@@ -42,6 +44,14 @@ export default function ShibaCreationPage(){
     
     return(
         <div className="Shibacreationpage" style={{width: '100%', height: '100%', position: 'relative', background: '#BEB378'}}>
+<div className="Dogfactgroup" style={{width: '100%', bottom: 58}}>
+    <div className="Outerdogfactdiv" style={{width: 397, height: 241, left: 0, top: 372, position: 'absolute', background: '#EFC983', borderRadius: 39, borderColor: "black"}} />
+    <div className="Innerdogfactdiv" style={{width: 344, height: 150, left: 25, top: 390, position: 'absolute', background: '#D2DBA0', borderRadius: 46, borderColor: "black", padding: '10px', overflow: 'hidden'}}>
+  <p style={{margin: 0, fontSize: '16px', whiteSpace: 'normal', overflow: 'hidden', textOverflow: 'ellipsis', color: "black", fontFamily: "sans-serif"}}>
+    Dog Fact Of The Day: {dogFact}
+  </p>
+</div>
+</div>
     <div className="FooterGroup" style={{width: 1512, height: 68, left: 0, top: 914, position: 'absolute'}}>
         <div className="FooterDiv" style={{width: 1512, height: 65, left: 0, top: 0, position: 'absolute', background: '#E0C223'}} />
         <div className="Footer" style={{left: 36, top: 0, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 12, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word'}}>FOOTER</div>
