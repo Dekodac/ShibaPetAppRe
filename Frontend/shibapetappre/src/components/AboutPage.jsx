@@ -1,8 +1,13 @@
 import React from 'react';
 import ShibaGifPicture from "../assets/eva-sanchez-purple-shibabueno.gif";
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { LogoutContext } from './LogoutContext';
 
 export default function AboutPage() {
+  const {handleLogout} = useContext(LogoutContext)
+
+  
   return (
 <div style={{width: 1512, height: 982, position: 'relative', background: '#BEB378'}}>
     <div style={{width: 1512, height: 65, left: 0, top: 914, position: 'absolute'}}>
@@ -22,6 +27,10 @@ export default function AboutPage() {
     </div>
     <div style={{width: 864, height: 370, left: 324, top: 113, position: 'absolute', background: 'rgba(255, 240.12, 240.12, 0.78)', borderRadius: 34, border: '0.50px black solid'}} />
     <div style={{width: 826, height: 270, left: 345, top: 140, position: 'absolute', textAlign: 'center'}}><span style={{color: 'black', fontSize: 32, fontFamily: 'Indie Flower', fontWeight: '400', wordWrap: 'break-word'}}>Hi, My name is Dakota and have a small place in my heart for shiba inus so I decided to build a character game for them! </span><span style={{color: 'black', fontSize: 40, fontFamily: 'Indie Flower', fontWeight: '400', wordWrap: 'break-word'}}>O</span><span style={{color: 'black', fontSize: 32, fontFamily: 'Indie Flower', fontWeight: '400', wordWrap: 'break-word'}}>nce you sign up, you can create a shiba with different attributes and will be given a shiba character based on the attributes you gave! Pretty cool huh? Try it out now! Each shiba can get up to 100 experience points, and unlock several tricks to perform!</span></div>
+    <Link to={"/"} onClick={handleLogout}>
+        <div className="BackToInventoryDiv" style={{width: 326, height: 74, left: 0, top: 0, position: 'absolute', background: '#D2DBA0', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', borderRadius: 70}} />
+        <div className="Logout" style={{width: 275.34, height: 37.84, left: 40, top: 18.50, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 24, fontFamily: 'Kiwi Maru', fontWeight: '500', wordWrap: 'break-word'}}>Logout<br/></div>
+        </Link>
 </div>
   );
 }
