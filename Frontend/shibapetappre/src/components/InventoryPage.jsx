@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { LogoutContext } from "./LogoutContext";
+
+
 export default function InventoryPage(){
+    const {handleLogout} = useContext(LogoutContext)
+    const navigate = useNavigate();
     const token = localStorage.getItem('token');
+    
     if (token === "undefined"){
-      localStorage.removeItem("token");
-    }
+        localStorage.removeItem("token");
+        navigate("/");
+    };
     
     if (!token){
         return(
@@ -43,18 +52,20 @@ export default function InventoryPage(){
         </div>
         <div className="HeaderDivGroup" style={{width: 1367, height: 236, left: 68, top: 48, position: 'absolute'}}>
             <div className="HeaderDiv" style={{width: 1367, height: 236, left: 0, top: 0, position: 'absolute', background: '#EFC983', borderRadius: 42}} />
-            <div className="YourInventory" style={{width: 1274, height: 145, left: 51, top: 47, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 64, fontFamily: 'Kiwi Maru', fontWeight: '500', wordWrap: 'break-word'}}>Your Inventory</div>
+            <div className="YourInventory" style={{width: 1274, height: 145, left: 51, top: 47, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 64, fontFamily: 'Kiwi Maru', fontWeight: '500', wordWrap: 'break-word'}}>Your Shibas!</div>
         </div>
         <div className="CreateAShibeGroup" style={{width: 585, height: 108, left: 463, top: 707, position: 'absolute'}}>
             <div className="CreateAShibeOuterDiv" style={{width: 585, height: 108, left: 0, top: 0, position: 'absolute', background: '#FFD78D', borderRadius: 17}} />
             <div className="CreateAShibeInnerDiv" style={{width: 564, height: 92, left: 11, top: 8, position: 'absolute', background: '#D2DBA0', borderRadius: 83}} />
         <Link to={"/shibacreation"}>
-            <div className="CreateYourNextShibu" style={{width: 444, height: 56, left: 71, top: 36, position: 'absolute', textAlign: 'center', color: '#3D70BD', fontSize: 40, fontFamily: 'Tajawal', fontWeight: '900', wordWrap: 'break-word'}}><button>Create your next shibu</button></div>
+            <div className="CreateYourNextShibu" style={{width: 444, height: 200, left: 71, top: 20, position: 'absolute', textAlign: 'center', color: '#3D70BD', fontSize: 30, fontFamily: 'Tajawal', fontWeight: '900', wordWrap: 'break-word'}}><button>Create your next shibu</button></div>
             </Link>
         </div>
         <div className="UserInventoryHeaderGroup" style={{width: 326, height: 74, left: 1145, top: 21, position: 'absolute'}}>
+            <Link to={"/"} onClick={handleLogout}>
             <div className="BackToInventoryDiv" style={{width: 326, height: 74, left: 0, top: 0, position: 'absolute', background: '#D2DBA0', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', borderRadius: 70}} />
-            <div className="Logout" style={{width: 275.34, height: 37.84, left: 50.33, top: 18.50, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 24, fontFamily: 'Kiwi Maru', fontWeight: '500', wordWrap: 'break-word'}}>Logout<br/></div>
+            <div className="Logout" style={{width: 275.34, height: 37.84, left: 40, top: 18.50, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 24, fontFamily: 'Kiwi Maru', fontWeight: '500', wordWrap: 'break-word'}}>Logout<br/></div>
+            </Link>
         </div>
         </div>
         )
