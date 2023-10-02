@@ -1,5 +1,5 @@
 
-#Features in work:
+# Features in work:
 
 ### Generating unqique shiba pictures for each user based on conditions selected.
 ### Admin Styling CSS vs Bootstrap..
