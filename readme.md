@@ -1,3 +1,14 @@
+
+#Features in work:
+
+### Generating unqique shiba pictures for each user based on conditions selected.
+### Admin Styling CSS vs Bootstrap..
+### Profile Pictures
+### User inventory to show shiba pictures in order.
+### XP and Tricks
+
+------
+
 # Introducing "PawsitiveBorks" - The Ultimate Shiba Simulation App!
 
 ## Features:
